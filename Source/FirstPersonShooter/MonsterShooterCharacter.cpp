@@ -49,6 +49,10 @@ void AMonsterShooterCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	//Doing the gun mesh attachment here because not already initialized in the constructor, safer approach
+	GunMesh->AttachToComponent(HandsMesh,
+		FAttachmentTransformRules::SnapToTargetNotIncludingScale,
+		TEXT("GripPoint"));
 }
 
 // Called every frame
